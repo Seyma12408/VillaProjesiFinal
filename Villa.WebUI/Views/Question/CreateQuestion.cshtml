@@ -1,0 +1,22 @@
+﻿@model CreateQuestDto
+@{
+    ViewData["Title"] = "Yeni Soru-Cevap Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Soru</label>
+    <input type="text" asp-for="Question" class="form-control" />
+    <span asp-validation-for="Question"></span>
+    <br />
+    <label>Cevap</label>
+    <input type="text" asp-for="Answer" class="form-control" />
+    <span asp-validation-for="Answer"></span>
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

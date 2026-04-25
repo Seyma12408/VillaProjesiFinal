@@ -1,0 +1,30 @@
+﻿@model CreateMessageDto
+@{
+    ViewData["Title"] = "Yeni Mesaj Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Ad-Soyad</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <label>Konu</label>
+    <input type="text" asp-for="Subject" class="form-control" />
+    <span asp-validation-for="Subject"></span>
+    <br />
+    <label>Email</label>
+    <input type="text" asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email"></span>
+    <br />
+    <label>Mesaj İçeriği</label>
+    <textarea asp-for="MessageContent" class="form-control" rows="10"></textarea>
+    <span asp-validation-for="MessageContent"></span>
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

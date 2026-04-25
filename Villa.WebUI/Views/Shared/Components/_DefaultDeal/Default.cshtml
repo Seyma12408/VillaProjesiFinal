@@ -1,0 +1,78 @@
+﻿@model List<ResultDealDto>
+
+<div class="section best-deal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-heading">
+                    <h6>| En İyi Teklif</h6>
+                    <h2>Hemen En İyi Fırsatı Bulun!</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tabs-content">
+                    <div class="row">
+                        <div class="nav-wrapper">
+                            <ul class="nav nav-tabs" role="tablist">
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    var item = Model[i];
+                                   
+                                    var activeClass = (i == 0) ? "active" : "";
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link @activeClass"
+                                                id="tab-@i"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#content-@i"
+                                                type="button"
+                                                role="tab">
+                                            @item.Type
+                                        </button>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="tab-content" id="myTabContent">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                var item = Model[i];
+                                var activeClass = (i == 0) ? "show active" : "";
+
+                                <div class="tab-pane fade @activeClass"
+                                     id="content-@i"
+                                     role="tabpanel"
+                                     aria-labelledby="tab-@i">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="info-table">
+                                                <ul>
+                                                    <li>Metrekare Bilgisi <span>@item.Square</span></li>
+                                                    <li>Bulunduğu Kat <span>@item.Floor</span></li>
+                                                    <li>Oda Sayısı <span>@item.RoomCount</span></li>
+                                                    <li>Park Alanı <span>@(item.HasParkingArea ? "Var" : "Yok")</span></li>
+                                                    <li>Ödeme Türü <span>@item.PaymentType</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <img src="@item.ImageUrl" alt="@item.Title" class="img-fluid">
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h4>@item.Title</h4>
+                                            <p>@item.Description</p>
+                                            <div class="icon-button">
+                                                <a href="#"><i class="fa fa-calendar"></i> Ziyaret Planlayın</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

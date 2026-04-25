@@ -1,0 +1,33 @@
+﻿@model List<ResultQuestDto>
+@{
+    int count = 0;
+}
+<div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+        count++;
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_@count">
+                @* İlk eleman değilse (count > 1) 'collapsed' sınıfını ekle ve aria-expanded'ı false yap *@
+                <button class="accordion-button @(count > 1 ? "collapsed" : "")"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_@count"
+                        aria-expanded="@(count == 1 ? "true" : "false")"
+                        aria-controls="collapse_@count">
+                    @item.Question ?
+                </button>
+            </h2>
+
+            @* İlk eleman değilse (count > 1) 'show' sınıfını kaldır *@
+            <div id="collapse_@count"
+                 class="accordion-collapse collapse @(count == 1 ? "show" : "")"
+                 aria-labelledby="heading_@count"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    @item.Answer
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,26 @@
+﻿@model CreateContactDto
+@{
+    ViewData["Title"] = "Yeni İletişim Bilgisi Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Harita Url</label>
+    <input type="text" asp-for="MapUrl" class="form-control" />
+    <span asp-validation-for="MapUrl"></span>
+    <br />
+    <label>Telefon</label>
+    <input type="text" asp-for="Phone" class="form-control" />
+    <span asp-validation-for="Phone"></span>
+    <br />
+    <label>Email</label>
+    <input type="text" asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email"></span>
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

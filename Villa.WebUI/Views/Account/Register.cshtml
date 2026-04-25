@@ -1,0 +1,99 @@
+﻿@model RegisterDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="~/colorlib-regform-7/css/style.css">
+    <link rel="stylesheet" href="~/colorlib-regform-7/fonts/material-icon/css/material-design-iconic-font.min.css">
+</head>
+<body>
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Kullanıcı Kaydı</h2>
+                        <form method="post" class="register-form" id="register-form" asp-controller="Account" asp-action="Register">
+
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account"></i></label>
+                                <input type="text" asp-for="NameSurname" placeholder="Adınız Soyadınız" />
+                                <span asp-validation-for="NameSurname" style="color:red; font-size:12px;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account"></i></label>
+                                <input type="text" asp-for="UserName" placeholder="Kullanıcı Adınız" />
+                                <span asp-validation-for="UserName" style="color:red; font-size:12px;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" asp-for="Email" placeholder="Email Adresiniz" />
+                                <span asp-validation-for="Email" style="color:red; font-size:12px;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" asp-for="Password" placeholder="Şifre" />
+                                <span asp-validation-for="Password" style="color:red; font-size:12px;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
+                                <label for="agree-term" class="label-agree-term">
+                                    <span><span></span></span>
+                                    <a href="#" class="term-service">Kullanıcı şartlarını</a> okudum kabul ediyorum
+                                </label>
+                            </div>
+                            <p style="color:red">@Html.ValidationSummary()</p>
+
+                       <div class="form-group form-button">
+                          <input type="submit" name="signup" id="signup" class="form-submit" value="Kayıt Ol" disabled />
+                       </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="~/colorlib-regform-7/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="/Account/Login" class="signup-image-link">Zaten Üyeyim Giriş Yap</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="~/colorlib-regform-7/vendor/jquery/jquery.min.js"></script>
+    <script src="~/colorlib-regform-7/js/main.js"></script>
+
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkbox = document.getElementById('agree-term');
+            const submitBtn = document.getElementById('signup');
+
+            // Sayfa ilk açıldığında butonun stilini ayarla
+            submitBtn.style.opacity = "0.5";
+            submitBtn.style.cursor = "not-allowed";
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.cursor = "pointer";
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = "0.5";
+                    submitBtn.style.cursor = "not-allowed";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

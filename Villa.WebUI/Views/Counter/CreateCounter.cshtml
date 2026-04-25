@@ -1,0 +1,22 @@
+﻿@model CreateCounterDto
+@{
+    ViewData["Title"] = "Yeni Sayaç Bilgisi Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title"></span>
+    <br />
+    <label>Değer</label>
+    <input type="text" asp-for="Count" class="form-control" />
+    <span asp-validation-for="Count"></span>
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
