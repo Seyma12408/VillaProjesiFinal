@@ -3,39 +3,68 @@
 }
 <!DOCTYPE html>
 <html lang="en">
-@await Component.InvokeAsync("_AdminHead")
-<style>
-    .input-validation-error {
-        border: 2px solid #dc3545 !important;
-        background-color: #fff8f8 !important;
-    }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>@ViewData["Title"] - Villa Admin Panel</title>
 
-    .field-validation-error {
-        color: #dc3545;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-top: 5px;
-        display: block;
-    }
+    @* --- CSS BAĞLANTILARI --- *@
 
-    @@keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-5px);
+    @* 1. Focus-2 Admin Teması CSS *@
+    <link rel="stylesheet" href="~/focus-2/vendor/pg-calendar/css/pignose.calendar.min.css">
+    <link rel="stylesheet" href="~/focus-2/vendor/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="~/focus-2/css/style.css">
+    <link rel="stylesheet" href="~/focus-2/css/perfect-scrollbar.css">
+
+    @* 2. VillaAgency Ana Tema CSS *@
+    <link rel="stylesheet" href="~/VillaAgency-1.0.0/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/VillaAgency-1.0.0/assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="~/VillaAgency-1.0.0/assets/css/owl.css">
+    <link rel="stylesheet" href="~/VillaAgency-1.0.0/assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    @* 3. Colorlib Reg Form 7 CSS (Login/Kayıt için) *@
+    <link rel="stylesheet" href="~/colorlib-regform-7/css/style.css">
+    <link rel="stylesheet" href="~/colorlib-regform-7/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    @await Component.InvokeAsync("_AdminHead")
+
+    <style>
+        .input-validation-error {
+            border: 2px solid #dc3545 !important;
+            background-color: #fff8f8 !important;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        .field-validation-error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 5px;
+            display: block;
         }
-    }
-</style>
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
 <body>
     @await Component.InvokeAsync("_AdminPreloader")
+
     <div id="main-wrapper">
         @await Component.InvokeAsync("_AdminLogo")
         @await Component.InvokeAsync("_AdminNavbar")
         @await Component.InvokeAsync("_AdminSidebar")
+
         <div class="content-body">
             <div class="container-fluid">
                 <div class="row page-titles mx-0">
@@ -56,8 +85,31 @@
                 </div>
             </div>
         </div>
+
         @await Component.InvokeAsync("_AdminFooter")
     </div>
+
+    @* --- JAVASCRIPT BAĞLANTILARI --- *@
+
+    @* Focus-2 Scripts *@
+    <script src="~/focus-2/vendor/global/global.min.js"></script>
+    <script src="~/focus-2/js/quixnav-init.js"></script>
+    <script src="~/focus-2/js/custom.min.js"></script>
+    <script src="~/focus-2/vendor/chartist/js/chartist.min.js"></script>
+    <script src="~/focus-2/vendor/moment/moment.min.js"></script>
+    <script src="~/focus-2/vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+    <script src="~/focus-2/js/dashboard/dashboard-1.js"></script>
+
+    @* VillaAgency Scripts *@
+    <script src="~/VillaAgency-1.0.0/vendor/jquery/jquery.min.js"></script>
+    <script src="~/VillaAgency-1.0.0/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/VillaAgency-1.0.0/assets/js/isotope.min.js"></script>
+    <script src="~/VillaAgency-1.0.0/assets/js/owl-carousel.js"></script>
+    <script src="~/VillaAgency-1.0.0/assets/js/custom.js"></script>
+
+    @* Colorlib Reg Form 7 Scripts *@
+    <script src="~/colorlib-regform-7/js/main.js"></script>
+
     @await Component.InvokeAsync("_AdminScripts")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
