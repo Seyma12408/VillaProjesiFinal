@@ -58,4 +58,8 @@ Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları i
 *   `Villa.Dto/`: Katmanlar arası veri taşıma nesneleri.
 
 ---
-⭐ Bu proje portfolyo amaçlı geliştirilmiştir.
+<img width="1887" height="850" alt="Ekran görüntüsü 2026-05-09 165811" src="https://github.com/user-attachments/assets/3211991e-c8e9-47e9-9ec3-e9df13c7aaba" />
+<img width="1828" height="852" alt="Ekran görüntüsü 2026-05-09 165850" src="https://github.com/user-attachments/assets/b14ee0c7-6dc5-49d6-9156-c23a3cc9ac71" />
+<img width="1858" height="848" alt="Ekran görüntüsü 2026-05-09 165938" src="https://github.com/user-attachments/assets/1f94d7e8-2a6c-4e38-b959-d4c9669ec20d" />
+<img width="1398" height="778" alt="Ekran görüntüsü 2026-05-09 170041" src="https://github.com/user-attachments/assets/d29b7355-90cd-46a9-a97d-3242ad4d4c0c" />
+
